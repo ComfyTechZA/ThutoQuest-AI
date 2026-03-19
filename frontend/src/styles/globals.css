@@ -1,0 +1,61 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* iOS Safari viewport fix */
+  height: 100%;
+  max-height: 100vh;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  color: #0f172a;
+  overflow-x: hidden;
+  /* Safe area support for notched devices */
+  padding-left: max(0px, env(safe-area-inset-left));
+  padding-right: max(0px, env(safe-area-inset-right));
+  padding-top: max(0px, env(safe-area-inset-top));
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+
+/* Optimizations for low-spec devices */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Touch-friendly sizing */
+@media (max-width: 480px) {
+  button, a[role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Smooth corners for Android */
+input, textarea, select, button {
+  border-radius: 0.5rem;
+}
+
+/* Performance optimizations */
+img {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@supports (padding: max(0px)) {
+  body {
+    /* notch support */
+  }
+}

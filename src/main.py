@@ -9,6 +9,9 @@ from fastapi.responses import JSONResponse
 import logging
 from contextlib import asynccontextmanager
 
+# Route imports
+from src.interfaces.gamification_routes import router as gamification_router
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -41,6 +44,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include routers
+app.include_router(gamification_router)
 
 
 # Health check endpoint
